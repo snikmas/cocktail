@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+  margin:0;
+}
+
+header {
+  padding-top: 40px;
+  padding-bottom: 20px;
+  text-align: center;
+  border:2px solid darkblue
+}
+
+.search {
+  border:2px solid darkgoldenrod;
+  text-align: center;
+  align-content: center;
+  height:40vh;
+}
+
+.carousel {
+  
+  display: flex;
+  justify-content: space-between;
+  border: 3px solid darkgreen;
+
+  height:80vh;
+  align-items: center;
+
+}
+
+.btn {
+  margin:10px;
+}
