@@ -1,36 +1,136 @@
 * {
   box-sizing: border-box;
   margin:0;
+  font-family: Montserrat, sans-serif;
+}
+
+body {
+  background-color: #171B25;
+  color:wheat
 }
 
 header {
+  background-color: #0C0D0F;
+  font-size: 29;
+
   padding-top: 40px;
   padding-bottom: 20px;
   text-align: center;
-  border:2px solid darkblue
+}
+
+.find {
+  padding:15px;
+  font-size: 30px;
+
 }
 
 .search {
-  border:2px solid darkgoldenrod;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
   text-align: center;
   align-content: center;
-  height:40vh;
+  height:50vh;
+
+  margin-left: auto;
+  margin-right: auto;
+  
+  padding:20px;
 }
+
+form {
+  
+  padding: 25px 20px;
+  width: 680px;
+  background: none;
+  border-radius: 1000px;
+  background-color: #2E3443;
+
+  display: flex;
+  flex-direction: row;
+}
+
+#cocktail-in, #cocktail-btn {
+  font-size: 23px;
+  border-radius: 20px;
+  padding:10px;
+}
+
+#cocktail-in{
+  width:500px;
+  flex-grow: 2;
+  border:none;
+
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+#cocktail-btn {
+  background-color: white;
+  border:none;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+
+/* RANDOM BTN */
+.random{
+  display: flex;
+  justify-content: center;
+}
+
+#random-btn{
+  font-size: 27px;
+  padding:20px 30px;
+  border-radius: 30px;
+  
+}
+/* ============================== */
+
+.carousel-div{
+  padding-top:80px;
+  text-align: center;
+}
+
+.carousel-div h1 {
+  font-size: 32px;
+}
+
 
 .carousel {
   
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  border: 3px solid darkgreen;
 
   height:80vh;
   align-items: center;
 
 }
 
-.btn {
-  margin:10px;
+.display {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  gap:110px;
+
 }
-/* 
-.drinkImg {
-} */
+
+.btn {
+  margin:5px;
+}
+
+.back img{
+  max-width:320px;
+}
+.center img {
+  max-width:480px;
+}
+
+.display img {
+  margin-bottom:30px;
+}
