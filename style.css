@@ -11,17 +11,17 @@ body {
 
 header {
   background-color: #0C0D0F;
-  font-size: 29;
+  font-size: 25px;
 
-  padding-top: 40px;
-  padding-bottom: 20px;
+  padding-top: 50px;
+  padding-bottom: 40px;
   text-align: center;
 }
 
 .find {
   padding:15px;
-  font-size: 30px;
-
+  font-size: 38px;
+  
 }
 
 .search {
@@ -33,10 +33,12 @@ header {
 
   text-align: center;
   align-content: center;
-  height:50vh;
+  height:40vh;
+
 
   margin-left: auto;
   margin-right: auto;
+  background-color: #2E3443;
   
   padding:20px;
 }
@@ -47,22 +49,23 @@ form {
   width: 680px;
   background: none;
   border-radius: 1000px;
-  background-color: #2E3443;
 
   display: flex;
   flex-direction: row;
 }
 
 #cocktail-in, #cocktail-btn {
-  font-size: 23px;
-  border-radius: 20px;
-  padding:10px;
+  font-size: 28px;
+  border-radius: 30px;
+  padding:14px 10px;
 }
 
 #cocktail-in{
   width:500px;
   flex-grow: 2;
   border:none;
+
+  padding-left:20px;
 
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
@@ -73,22 +76,11 @@ form {
   border:none;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+  padding-right: 15px;
+  border-left:2px solid #2E3443;
 }
 
 
-/* RANDOM BTN */
-.random{
-  display: flex;
-  justify-content: center;
-}
-
-#random-btn{
-  font-size: 27px;
-  padding:20px 30px;
-  border-radius: 30px;
-  
-}
-/* ============================== */
 
 .carousel-div{
   padding-top:80px;
@@ -96,7 +88,7 @@ form {
 }
 
 .carousel-div h1 {
-  font-size: 32px;
+  font-size: 48px;
 }
 
 
@@ -105,10 +97,8 @@ form {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
-  height:80vh;
+  height:70vh;
   align-items: center;
-
 }
 
 .display {
@@ -121,8 +111,26 @@ form {
 }
 
 .btn {
-  margin:5px;
+  margin:10px;
 }
+
+.btn button {
+  
+  height:80px;
+  width:80px;
+  border-color: transparent;
+
+  padding:15px;
+  background-color: #FFFFFF;
+  border-radius:50%;
+  box-sizing: border-box;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+
 
 .back img{
   max-width:320px;
@@ -139,17 +147,20 @@ form {
 /* RESULTS */
 
 .input {
-  padding: 30px 20px;
+  margin-top:40px;
+  border-top:2px solid #0C0D0F;
+  padding: 20px 50px;
+  padding-top:40px;
+  font-size: 30px;
 }
 
 .gallery-img {
-  width:300px;
+  width:380px;
 }
 
 
 .gallery{
   display: grid;
-  border: 2px solid darkblue;
 
   align-items: center;
   align-content: center;
@@ -159,7 +170,6 @@ form {
 
 .gallery-div {
   padding: 30px;
-  border:3px solid darkcyan;
   text-align: center;
 }
 
@@ -167,3 +177,15 @@ form {
   font-size: 20px;
   padding-top:20px;
 }
+
+
+footer {
+  margin-top:30px;
+  height:5vh;
+  align-content: center;
+  padding-left:20px;
+  background-color:#0C0D0F;
+}
+
+/* DONE IT */
+/* need only animation things: buttons / smooth scroll etc */

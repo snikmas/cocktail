@@ -1,24 +1,22 @@
 // buttons
 const leftBtn = document.querySelector('#left');
 const rightBtn = document.querySelector('#right');
-const randomBtn = document.querySelector("#random-btn");
 const inputBtn = document.querySelector("#cocktail-btn");
 const inputForm = document.querySelector('#cocktail-in');
+const footer = document.querySelector("footer")
 
 const resultsDiv = document.querySelector(".results");
+let resultsElements;
 
-// module.exports = {inputBtn};  can we?
 
 leftBtn.addEventListener('click', leftCarousel);
 rightBtn.addEventListener('click', rightCarousel);
-randomBtn.addEventListener('click', generateDrinks);
 
 inputBtn.addEventListener('click', inputDrink);
-inputForm.addEventListener('keydown', keyPress => {
-  console.log(keyPress)
+inputForm.addEventListener('keydown', event => {
   
-  if (keyPress.key == "Enter") {
-    keyPress.preventDefault()
+  if (event.key == "Enter") {
+    event.preventDefault()
     inputDrink()
   }
   
@@ -33,50 +31,66 @@ inputForm.addEventListener('keydown', keyPress => {
 // the parameter)
 // 4. 
 
+function creatingDiv(){
+  let resultsElements = document.createElement("div");
+  resultsElements.classList.add("results");
+  document.body.insertBefore(resultsElements, footer);
+
+  return resultsElements
+}
+
+
+
 function inputDrink(){
   
   let nameDrink = document.querySelector('#cocktail-in').value;
   
-  let drinks = {};
-  let k = 0;
   console.log(nameDrink)
+
+  let resultsElements = document.getElementsByClassName('results')[0];
   
   //need to add elements results input gallery elements
-  let resultsElements = document.createElement("div");
-  resultsElements.classList.add("results");
-  resultsElements.innerHTML = `
+  if (!resultsElements)
+    {
+      resultsElements = creatingDiv();
+    }
+    else{
+      resultsElements.innerHTML = ''
+    }
+      resultsElements.innerHTML = `
     <div class="input">
-    <h3>Your results: Margarita</h3>
-  </div>
-  <div class="gallery">
-  </div>
-  `
-  document.body.appendChild(resultsElements);
-  
-  const gallery = document.querySelector(".gallery");
-  
-  
-  fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${nameDrink}`)
-  .then(res => res.json())
-  .then(data => {
-    console.log(data);
-  while(data[k]){
-    drinks.push(data[k]);
-    k++;
-  }
-      
-  console.log(drinks)
-
-  gallery.innerHTML = '';
-  for (let i = 0; i < drinks.length; i++){
-    gallery.innerHTML += `
-      <div class="gallery-div">
-        <img class="gallery-img" src="${drinks[i].strDrinkThumb}">
-        <h6 class="gallery-name">${drinks[i].strDrink}</h6>
-      </div>
+    <h3>Your results: ${nameDrink}</h3>
+    </div>
+    <div class="gallery">
+    </div>
     `
-  }  
-  }
+    
+    
+    const gallery = document.querySelector(".gallery");
+    
+    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${nameDrink}`)
+    .then(res => res.json())
+    .then(data => {
+      // NEED USE DATA DRINKS PROPERTY TO GET ACCESS
+      console.log(data.drinks);
+      
+      // need to scrool to this place
+      
+      let yCoord = gallery.getBoundingClientRect();
+      console.log(yCoord)
+      scrollTo(0, yCoord.y + 800)
+      
+      gallery.innerHTML = '';
+      for (let i = 0; i < data.drinks.length; i++){
+
+        gallery.innerHTML += `
+        <div class="gallery-div">
+        <img class="gallery-img" src="${data.drinks[i].strDrinkThumb}">
+        <h6 class="gallery-name">${data.drinks[i].strDrink}</h6>
+        </div>
+        `
+      }  
+    }
   )
   .catch(error => {
     console.log(`Error: ${error}`)
@@ -118,8 +132,7 @@ function generateDrink(x) {
   
   fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
   .then(res => res.json())
-  .then(data => {
-    console.log(data.drinks[0]);    
+  .then(data => {    
     let thisDrink = data.drinks[0];
     document.querySelector(`.drinkName${x}`).innerText = thisDrink.strDrink;
     document.querySelector(`.drinkImg${x}`).src = thisDrink.strDrinkThumb
